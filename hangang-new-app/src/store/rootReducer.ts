@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import initReducer from './init/reducer';
+import centeerPosReducer from './centerPos/reducer';
 
 const rootReducer = combineReducers({
-  initReducer,
+  centeerPosReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
