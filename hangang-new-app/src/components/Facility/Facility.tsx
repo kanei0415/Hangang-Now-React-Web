@@ -1,4 +1,4 @@
-import { ParkingMarkerTypes } from '@store/parking/modules/actionTypes';
+import { FacilityDataType } from '@store/facility/acitons';
 import React, { RefObject } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
@@ -8,20 +8,20 @@ type Props = {
     lat: number;
     lng: number;
   } | null;
-  parkings: ParkingMarkerTypes[];
+  data: FacilityDataType[];
 };
 
-const Hangangnow = ({ mapRef, centerPos, parkings }: Props) => {
+const Facility = ({ mapRef, centerPos, data }: Props) => {
   return centerPos ? (
     <Map
       ref={mapRef}
       center={centerPos}
       style={{ width: '100vw', height: '100vh' }}>
-      {parkings.map((item, index) => (
+      {data.map((item, index) => (
         <MapMarker
           position={{
-            lat: item.local.y_pos,
-            lng: item.local.x_pos,
+            lat: item.y_pos,
+            lng: item.x_pos,
           }}></MapMarker>
       ))}
     </Map>
@@ -30,4 +30,4 @@ const Hangangnow = ({ mapRef, centerPos, parkings }: Props) => {
   );
 };
 
-export default Hangangnow;
+export default Facility;
