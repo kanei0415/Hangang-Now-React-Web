@@ -1,3 +1,4 @@
+import images from '@assets/images';
 import { ParkingMarkerTypes } from '@store/parking/modules/actionTypes';
 import React, { RefObject } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
@@ -19,6 +20,13 @@ const Hangangnow = ({ mapRef, centerPos, parkings }: Props) => {
       style={{ width: '100vw', height: '100vh' }}>
       {parkings.map((item, index) => (
         <MapMarker
+          image={{
+            src: images.common.marker,
+            size: {
+              width: 60,
+              height: 70,
+            },
+          }}
           position={{
             lat: item.local.y_pos,
             lng: item.local.x_pos,

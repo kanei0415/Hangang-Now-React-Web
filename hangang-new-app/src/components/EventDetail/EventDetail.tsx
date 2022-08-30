@@ -1,3 +1,4 @@
+import images from '@assets/images';
 import React, { RefObject } from 'react';
 import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 
@@ -15,7 +16,16 @@ const EventDetail = ({ mapRef, centerPos }: Props) => {
       ref={mapRef}
       center={centerPos}
       style={{ width: '100vw', height: '100vh' }}>
-      <MapMarker position={centerPos} />
+      <MapMarker
+        image={{
+          src: images.common.marker,
+          size: {
+            width: 60,
+            height: 70,
+          },
+        }}
+        position={centerPos}
+      />
     </Map>
   ) : null;
 };
