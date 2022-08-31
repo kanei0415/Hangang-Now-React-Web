@@ -23,7 +23,8 @@
       "@typedef/*": ["typedef/*"],
       "@hooks/*": ["hooks/*"],
       "@store/*": ["store/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@assets/*": ["assets/*"]
     },
     "types": ["kakao.maps.d.ts"]
   },

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import HomeContainer from '@components/Home/containers/HomeContainer';
 import EventDetailContainer from '@components/EventDetail/containers/EventDetailContainer';
 import HangangnowContainer from '@components/Hangangnow/containers/HangangnowContainer';
 import FacilityContainer from '@components/Facility/containers/FacilityContainer';
