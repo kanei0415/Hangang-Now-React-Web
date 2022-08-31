@@ -1,7 +1,8 @@
 import { store } from '@components/App';
 import useCenterPos from '@hooks/useCenterPos';
 import useParking from '@hooks/useParking';
-import React, { useEffect, useRef, useState } from 'react';
+import { ParkingMarkerTypes } from '@store/parking/modules/actionTypes';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Hangangnow from '../Hangangnow';
 
 const handler: EventListener = (e: any) => {
@@ -13,6 +14,12 @@ const HangangnowContainer = () => {
   const { data } = useParking();
 
   const mapRef = useRef<kakao.maps.Map>(null);
+
+  const onMarkerPressed = useCallback((item: ParkingMarkerTypes) => {
+    if (window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage(JSON.stringify(item));
+    }
+  }, []);
 
   useEffect(() => {
     document.addEventListener('message', handler);
@@ -30,7 +37,14 @@ const HangangnowContainer = () => {
     }
   }, [mapRef, centerPos]);
 
-  return <Hangangnow mapRef={mapRef} centerPos={centerPos} parkings={data} />;
+  return (
+    <Hangangnow
+      mapRef={mapRef}
+      centerPos={centerPos}
+      parkings={data}
+      onMarkerPressed={onMarkerPressed}
+    />
+  );
 };
 
 export default HangangnowContainer;
