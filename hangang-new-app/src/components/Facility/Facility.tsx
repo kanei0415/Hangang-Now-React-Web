@@ -16,6 +16,7 @@ type Props = {
 const Facility = ({ mapRef, centerPos, data, onMarkerPressed }: Props) => {
   return (
     <Map
+      level={6}
       ref={mapRef}
       center={
         centerPos || {

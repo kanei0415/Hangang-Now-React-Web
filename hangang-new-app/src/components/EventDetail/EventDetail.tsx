@@ -13,6 +13,7 @@ type Props = {
 const EventDetail = ({ mapRef, centerPos }: Props) => {
   return centerPos ? (
     <Map
+      level={6}
       ref={mapRef}
       center={centerPos}
       style={{ width: '100vw', height: '100vh' }}>
